@@ -12,11 +12,11 @@ public class CheckboxTest extends BaseTest {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         WebElement firstCheckBox = driver.findElement(By.xpath("//input[@type='checkbox'][1]"));
         WebElement secondCheckBox = driver.findElement(By.xpath("//input[@type='checkbox'][2]"));
-        Assert.assertTrue(firstCheckBox.isEnabled());
+        Assert.assertTrue(firstCheckBox.isEnabled(), "First check box should be enabled");
         firstCheckBox.click();
-        Assert.assertTrue(firstCheckBox.isSelected());
-        Assert.assertTrue(secondCheckBox.isSelected());
+        Assert.assertTrue(firstCheckBox.isSelected(), "First check box should be selected");
+        Assert.assertTrue(secondCheckBox.isSelected(), "Second check box should be selected");
         secondCheckBox.click();
-        Assert.assertTrue(secondCheckBox.isEnabled());
+        Assert.assertTrue(secondCheckBox.isEnabled(), "Second check box should be enabled");
     }
 }

@@ -18,13 +18,13 @@ public class InputsTest extends BaseTest {
         String actualResult;
         driver.findElement(By.xpath(INPUT_ELEMENT)).sendKeys("1");
         actualResult = driver.findElement(By.xpath(INPUT_ELEMENT)).getAttribute(attribute);
-        Assert.assertEquals(actualResult, "1");
+        Assert.assertEquals(actualResult, "1", "field should contain '1' inside");
         WebElement element = driver.findElement(By.xpath(INPUT_ELEMENT));
         element.sendKeys(Keys.ARROW_UP);
         actualResult = driver.findElement(By.xpath(INPUT_ELEMENT)).getAttribute(attribute);
-        Assert.assertEquals(actualResult, "2");
+        Assert.assertEquals(actualResult, "2", "field should contain '2' inside");
         element.sendKeys(Keys.ARROW_DOWN);
         actualResult = driver.findElement(By.xpath(INPUT_ELEMENT)).getAttribute(attribute);
-        Assert.assertEquals(actualResult, "1");
+        Assert.assertEquals(actualResult, "1", "field should contain '1' inside");
     }
 }

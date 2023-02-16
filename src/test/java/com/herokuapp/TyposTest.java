@@ -13,9 +13,9 @@ public class TyposTest extends BaseTest {
         String expectedText = "Sometimes you'll see a typo, other times you won't.";
         driver.get("http://the-internet.herokuapp.com/typos");
         actualText = driver.findElement(By.xpath(element)).getText();
-        Assert.assertEquals(actualText, expectedText);
+        Assert.assertEquals(actualText, expectedText, "Text '" + expectedText + "' should be displayed");
         driver.navigate().refresh();
         actualText = driver.findElement(By.xpath(element)).getText();
-        Assert.assertEquals(actualText, expectedText);
+        Assert.assertEquals(actualText, expectedText, "Text '" + expectedText + "' should be displayed");
     }
 }
