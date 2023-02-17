@@ -60,10 +60,13 @@ public class AlertsTest extends BaseTest {
     }
 
     private void acceptOrDismissAlert(String alertAction) {
-        if (alertAction.equals("accept")) {
-            driver.switchTo().alert().accept();
-        } else {
-            driver.switchTo().alert().dismiss();
+        switch (alertAction) {
+            case ("accept"):
+                driver.switchTo().alert().accept();
+                break;
+            case ("dismiss"):
+                driver.switchTo().alert().dismiss();
+                break;
         }
     }
 
