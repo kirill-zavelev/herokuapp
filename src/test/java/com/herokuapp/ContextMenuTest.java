@@ -16,8 +16,8 @@ public class ContextMenuTest extends BaseTest {
         Alert alert = driver.switchTo().alert();
         String expectedAlertText = "You selected a context menu";
         Assertions.assertThat(alert.getText())
-                .isEqualTo(expectedAlertText)
-                .as("'" + expectedAlertText + "' should be displayed in alert");
+                .as("'" + expectedAlertText + "' should be displayed in alert")
+                .isEqualTo(expectedAlertText);
         alert.getText();
     }
 }

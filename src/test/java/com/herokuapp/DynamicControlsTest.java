@@ -2,10 +2,11 @@ package com.herokuapp;
 
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class DynamicControlsTest extends BaseTest {
 
@@ -33,11 +34,13 @@ public class DynamicControlsTest extends BaseTest {
     }
 
     private boolean isElementPresent(By checkBoxLocator) {
-        try {
-            driver.findElement(checkBoxLocator);
-            return true;
-        } catch (NoSuchElementException e) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        if (driver.findElements(checkBoxLocator).size() == 0) {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             return false;
+        } else {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            return true;
         }
     }
 }
